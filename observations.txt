@@ -1,0 +1,84 @@
+task-2.1:
+
+parameters :
+alpha		-	0.1
+batchSize	-	5
+epochs		-	15
+seed		-	35
+Test Accuracy-  98.4
+no-layers	-   2
+
+
+layer Description:
+	Layer-1 : fully-connected(2*6)
+	Layer-2 : fully-connected(6*2)
+
+observations :
+1.The accuracy varies with respective seed
+2.The no of node are increased to 6 so that the accuracy for most of the seeds is > 90
+3.Observed that on increasing alpha maximum(possible with that parameters) is attained at a faster rate
+
+
+task-2.2:
+
+parameters :
+alpha		-	0.1
+batchSize	-	5
+epochs		-	15
+seed		-	35
+Test Accuracy-  97.8
+no-layers	-   2
+
+
+layer Description:
+	Layer-1 : fully-connected(2*2)
+	Layer-2 : fully-connected(2*2)
+
+observations :
+1.The accuracy varies with respective seed
+2.With no of nodes = 1, the accuracy was <90 and with no of nodes = 2, the accuracy is > 90 for almost all seeds
+3.Observed that on increasing alpha maximum(possible with that parameters) is attained at a faster rate
+
+task-2.3:
+
+parameters :
+alpha		-	0.1
+batchSize	-	5
+epochs		-	2
+seed		-	42
+Test Accuracy-  93.82000000000001
+no-layers	-   2
+
+
+layer Description:
+	Layer-1 : fully-connected(784*25)
+	Layer-2 : fully-connected(25*784)
+
+observations :
+1.The accuracy varies with respective seed
+2.With no of nodes < 20, the accuracy was <90 and with no of nodes = 25, the test accuracy of most of the seeds is > 90
+3.Observed that on increasing alpha maximum(possible with that parameters) is attained at a faster rate
+4.In the first iteration itself, the accuracy > 90. So reduced epochs to 3
+
+task-2.4:
+
+parameters :
+alpha		-	0.1
+batchSize	-	20
+epochs		-	15
+seed		-	42
+Test Accuracy-  37.2
+no-layers	-   4
+
+
+layer Description:
+	Layer-1: ConvolutionLayer([3,32,32], [15,15], 7, 3),[filter_row,col] = [15,15],num_filters = 7,stride = 3
+	Layer-2: FlattenLayer(),252 nodes
+	Layer-3: FullyConnectedLayer(6*6*7,40)
+	Layer-4: FullyConnectedLayer(40,10)
+
+
+observations :
+1.Here the first layer in a convolution layer as the inputs are like images where we have to apply filters.Then the output is flattend so that it can be passed to fully connected layer which will classify the input image.
+2.The number of filters should be atleast 3 (one for each color) and accuracy increases on increasing the number of filters. After no of filters =7 the accuracy is > 35 and on increasing this number takes much time to train so i set it to 7  
+3.As the stride size increases the accuracy increases and then decreases after a certain value so i set it to 3
